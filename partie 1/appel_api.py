@@ -1,8 +1,8 @@
-Import requests
+import requests
 
 def appel_api(query):
     if query.isdigit():  # Si l'entrée est un numéro, il s'agit d'un département
-        url = f"https://geo.api.gouv.fr/departements/%7Bquery%7D/communes"
+        url = f"https://geo.api.gouv.fr/departements/{query}/communes"
     else:  # Sinon, c'est le nom d'une ville
         url = f"https://geo.api.gouv.fr/communes?nom={query}&fields=population"
 
@@ -18,7 +18,7 @@ def appel_api(query):
         print(f"Erreur lors de la requête à l'API : {err}")
         return None
 
-def comunes(commune):
+def comunes(commune):  
     return commune.get("population", 0)
 
 def departement():
