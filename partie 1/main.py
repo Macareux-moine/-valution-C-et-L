@@ -59,10 +59,7 @@ def departement():
     entry_departement.pack()
     submit_button = tk.Button(window, text="Valider", command=resultat)
     submit_button.pack()
-
-def code_postal():
-    # À compléter selon votre besoin pour la recherche par code postal
-    pass
+    
 
 # Création de la fenêtre principale
 root = tk.Tk()
