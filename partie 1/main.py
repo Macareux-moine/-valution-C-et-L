@@ -1,5 +1,6 @@
-# fichier main.py
+from affichage import Windows
+from appel_api import Sélection
 
-from Projet.P1.affichage import on_choice_selected
-
+root = Windows(Sélection)
+root.mainloop()
 
