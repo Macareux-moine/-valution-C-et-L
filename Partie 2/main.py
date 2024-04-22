@@ -7,8 +7,10 @@ def password_file(file_name):
         with open(file_name, 'r') as file:
             for line in file:
                 password_list.append(line.strip())
+    except FileNotFoundError:
+        print("Erreur : Le fichier spécifié n'existe pas.")
     except Exception as ex:
-        print("Erreur %s" % ex)
+        print("Erreur : ", ex)
     return password_list
 
 def main():
@@ -17,10 +19,13 @@ def main():
         protocol = input("Choisir le protocole (FTP ou SSH): ").upper()
 
         # Demander le nom du fichier contenant les mots de passe
-        file_name = input("Entrez le nom du fichier avecles mot de passe : ")
+        file_name = input("Entrez le nom du fichier avec les mots de passe : ")
 
         # Charger la liste de mots de passe à partir du fichier
         password_list = password_file(file_name)
+
+        if not password_list:
+            return
 
         if protocol == "SSH":
             host = input("Entrez l'hôte cible : ")
