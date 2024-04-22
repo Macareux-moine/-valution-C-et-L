@@ -26,7 +26,7 @@ def appel_api(query):
     except requests.exceptions.RequestException as err:
         print(f"Erreur lors de la requête à l'API : {err}")
         return None
-    
+    # j'ai du modifier la comunes avec des expression qui permet eviter les doublons, erreur avec des ville avec 2 nom identique 
 def comunes(communes_list):
     total_population = 0
     if isinstance(communes_list, list):
